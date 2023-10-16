@@ -1,0 +1,8 @@
+services:
+  app:
+    build: .
+    ports:
+      - 3000:3000 #local:container
+    volumes:
+      - .:/home/node/app
+      #- /home/node/app/node_modules #VOLUME ANONIMO - diretório que não será sobrescrito pela instrução acima

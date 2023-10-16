@@ -11,7 +11,5 @@ export class AppController {
   }
 
   @Post('rota')
-  action(){
-
-  }
+  action() {}
 }
