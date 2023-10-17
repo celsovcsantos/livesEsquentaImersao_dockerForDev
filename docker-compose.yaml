@@ -6,3 +6,17 @@ services:
     volumes:
       - .:/home/node/app
       #- /home/node/app/node_modules #VOLUME ANONIMO - diretório que não será sobrescrito pela instrução acima
+    depends_on:
+      - db #nome do serviço que será dependente
+      #condition: service_healthy #condição para que o serviço dependente seja iniciado
+
+  db: 
+    image: mysql:8.0.30-debian
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - 3306:3306 #local:container - no local costuma adicionar um 0 (zero) no final da porta para não conflitar com o banco local
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=nest
+    volumes:
+      - ./.docker/dbdata:/var/lib/mysql #serve para manter os dados do banco mesmo que o container seja destruído

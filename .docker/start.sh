@@ -5,6 +5,10 @@
 
 npm install
 
+npm update
+
+npm audit fix --force
+
 # rodar migrações
 #rodar outros comandos
 # if [ "$NODE_ENV" == "development" ]; then
@@ -18,4 +22,5 @@ if [ ! -f ".env" ]; then
     cp .env.example .env
 fi	
 
+#manter o container rodando
 tail -f /dev/null
