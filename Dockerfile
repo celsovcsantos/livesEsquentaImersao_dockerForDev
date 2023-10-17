@@ -1,7 +1,7 @@
 FROM node:20-slim
 
 #nest precisa para não travar a execução da aplicação
-RUN apt update -y && apt install -y procps git
+RUN apt update -y && apt install -y procps
 
 RUN npm install -g npm@10.2.0
 
